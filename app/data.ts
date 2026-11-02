@@ -1,5 +1,8 @@
 // All portfolio content lives here. Projects, awards and numbers are mock data for the class project.
 
+/** Prefix for files in /public, so they still load when the site is served from a sub-path. */
+export const asset = (path: string) => `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}${path}`;
+
 export const profile = {
   first: "LEAN",
   last: "NAIVE",

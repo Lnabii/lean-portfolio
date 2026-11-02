@@ -2,7 +2,7 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { profile, skills } from "../data";
+import { asset, profile, skills } from "../data";
 import { Icon, MaskLine, Reveal, SectionLabel } from "./ui";
 
 const facts = [
@@ -47,7 +47,7 @@ export default function About() {
           </dl>
 
           <Reveal delay={0.3} y={20}>
-            <a href="/Lean-Naive-CV.pdf" download className="label mt-10 inline-flex items-center gap-3 rounded-lg bg-ink px-5 py-4 font-bold text-white transition-colors hover:bg-brand">
+            <a href={asset("/Lean-Naive-CV.pdf")} download className="label mt-10 inline-flex items-center gap-3 rounded-lg bg-ink px-5 py-4 font-bold text-white transition-colors hover:bg-brand">
               Download CV <Icon name="Download" size={15} />
             </a>
           </Reveal>

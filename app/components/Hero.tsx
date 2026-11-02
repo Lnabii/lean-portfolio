@@ -2,7 +2,7 @@
 
 import { motion, useMotionValue, useScroll, useSpring, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { profile } from "../data";
+import { asset, profile } from "../data";
 import { ease } from "./ui";
 
 export default function Hero() {
@@ -63,7 +63,7 @@ export default function Hero() {
           className="absolute bottom-0 left-1/2 w-[min(92vw,640px)] -translate-x-1/2 md:w-[min(50vw,720px)]"
         >
           <motion.img
-            src="/lean.webp"
+            src={asset("/lean.webp")}
             alt="Lean Naive"
             width={1000}
             height={1000}
