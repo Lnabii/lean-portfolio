@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-display: var(--font-archivo);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-mono);
+  --color-brand: #e3242b;
+  --color-ink: #0a0a0a;
+  --color-paper: #ececec;
+}
+
+html { scroll-behavior: smooth; }
+body { background: var(--color-ink); color: #ededed; font-family: var(--font-inter), system-ui, sans-serif; overflow-x: hidden; }
+::selection { background: var(--color-brand); color: #fff; }
+
+/* heavy, extra-wide headline type */
+.display {
+  font-family: var(--font-archivo), sans-serif;
+  font-weight: 900;
+  font-variation-settings: "wdth" 125;
+  letter-spacing: -0.02em;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+.label { font-family: var(--font-mono), monospace; font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; }
+
+.glow { background: radial-gradient(ellipse 55% 60% at 50% 48%, rgba(150, 16, 18, 0.55), rgba(80, 8, 10, 0.25) 45%, transparent 75%), #0a0a0a; }
+.stripes { background-image: repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.022) 0 1px, transparent 1px 72px); }
+
+/* first name: white with a red shine sliding across the last letters */
+.name-shine {
+  background: linear-gradient(90deg, #fff 0%, #fff 45%, #ffd6d6 60%, #e3242b 75%, #fff 90%, #fff 100%);
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shine 6s ease-in-out infinite;
+}
+@keyframes shine { 0%, 100% { background-position: 100% 0; } 50% { background-position: 0% 0; } }
+
+/* last name: fades out to the right */
+.name-fade {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.9), rgba(255, 220, 220, 0.55) 45%, rgba(227, 36, 43, 0.25) 80%, transparent);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.marquee-track { display: flex; width: max-content; animation: marquee 30s linear infinite; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+
+.skill-icon { filter: grayscale(1); opacity: 0.45; transition: filter 0.3s, opacity 0.3s, transform 0.3s; }
+.skill-icon:hover { filter: none; opacity: 1; transform: translateY(-3px); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .name-shine, .marquee-track { animation: none; }
+}
